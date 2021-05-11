@@ -1,4 +1,4 @@
-package com.guilherme.springblog.dto;
+package com.guilherme.springblog.requests;
 
 import lombok.Data;
 

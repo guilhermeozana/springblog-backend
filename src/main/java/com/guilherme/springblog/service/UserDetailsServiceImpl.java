@@ -1,6 +1,6 @@
 package com.guilherme.springblog.service;
 
-import com.guilherme.springblog.model.User;
+import com.guilherme.springblog.domain.User;
 import com.guilherme.springblog.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

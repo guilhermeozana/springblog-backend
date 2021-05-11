@@ -1,7 +1,7 @@
 package com.guilherme.springblog.controller;
 
-import com.guilherme.springblog.dto.LoginRequest;
-import com.guilherme.springblog.dto.RegisterRequest;
+import com.guilherme.springblog.requests.LoginRequest;
+import com.guilherme.springblog.requests.RegisterRequest;
 import com.guilherme.springblog.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
