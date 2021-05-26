@@ -2,7 +2,12 @@ package com.guilherme.springblog.service;
 
 import com.guilherme.springblog.domain.User;
 import com.guilherme.springblog.repository.UserRepository;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,9 +19,11 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

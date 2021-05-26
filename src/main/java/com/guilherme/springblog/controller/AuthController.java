@@ -3,6 +3,8 @@ package com.guilherme.springblog.controller;
 import com.guilherme.springblog.requests.LoginRequest;
 import com.guilherme.springblog.requests.RegisterRequest;
 import com.guilherme.springblog.service.AuthService;
+import com.guilherme.springblog.service.AuthenticationResponse;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +24,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest){
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest){
         return authService.login(loginRequest);
     }
 }

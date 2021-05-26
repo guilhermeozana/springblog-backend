@@ -1,6 +1,9 @@
 package com.guilherme.springblog.config;
 
+import com.guilherme.springblog.repository.UserRepository;
 import com.guilherme.springblog.security.JwtAuthenticationFilter;
+import com.guilherme.springblog.service.UserDetailsServiceImpl;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -36,15 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/api/auth/**")
-                .permitAll()
-                .antMatchers("/api/posts")
-                .hasRole("USER")
-                .antMatchers("/api/posts/all")
-                .permitAll()
-                .anyRequest()
-                .authenticated();
+            .authorizeRequests()
+            .antMatchers("/api/posts/**")
+            .hasRole("USER")
+            .anyRequest()
+            .authenticated();
 
         httpSecurity.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
